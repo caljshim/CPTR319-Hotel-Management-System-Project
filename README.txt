@@ -68,5 +68,8 @@ General functionalities:
       3. /User Forms
       4. DataAccess (contains all of my DML. The skeleton of my program).
       5. Program.cs
-       
+      
+  Ending Notes:
+    1. In order to uninstall my program, you can rerun the setup or you can go to Windows's Add/remove Programs option.
+    I hope you've enjoyed my project!
        
