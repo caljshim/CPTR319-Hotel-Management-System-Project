@@ -1,15 +1,17 @@
 Hello!
 
 The setup for this program is pretty straight-forward. 
-  1. Make sure that both the setup.exe and Setup.msi are present in the same directory as each other.
+  1. Locate the setup.exe and Setup.msi folder in the /Setup Files directory.
+
+  2. Make sure that both the setup.exe and Setup.msi are present in the same directory as each other.
   
-  2. Run setup.exe
+  3. Run setup.exe
   
-  3. The default installation path is going to be somewhere in the Programs (x86) file. 
+  4. The default installation path is going to be somewhere in the Programs (x86) file. 
       However, the application has trouble accessing the files due to high security, so change the installation path
       to somewhere easily accesible. For me, my Documents file worked perfectly.
       
-  4. Once the program runs, you'll be greeted with a Login page. The default user to get into the system is 
+  5. Once the program runs, you'll be greeted with a Login page. The default user to get into the system is 
   
       username: admin
       password: admin
