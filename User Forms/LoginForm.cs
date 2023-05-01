@@ -14,11 +14,12 @@ namespace Hotel_Management_System
     public partial class Login : Form
     {
         List<UserModel> users = new List<UserModel>();
-        Form home = new HomeForm();
+        private bool shouldExit = true;
         public Login()
         {
             InitializeComponent();
             this.FormClosing += form_closing;
+            this.Name = "Login";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -28,8 +29,10 @@ namespace Hotel_Management_System
 
             if (users.Count != 0)
             {
-                home.Show();
-                this.Hide();
+                shouldExit = false;
+                this.Close();
+                HomeForm homeForm = new HomeForm();
+                homeForm.Show();
             }
             else
             {
@@ -41,7 +44,7 @@ namespace Hotel_Management_System
 
         private void form_closing(object sender, FormClosingEventArgs e)
         {
-            if (e.CloseReason == CloseReason.UserClosing)
+            if (shouldExit)
             {
                 Application.Exit();
             }

@@ -12,6 +12,7 @@ namespace Hotel_Management_System
 {
     public partial class HomeForm : Form
     {
+        private bool shouldExit = true;
         public HomeForm()
         {
             InitializeComponent();
@@ -32,8 +33,8 @@ namespace Hotel_Management_System
             addGuests1.Hide();
             addRooms1.Hide();
             addReservations2.Hide();
+            dashboard1.updateDashboard();
             dashboard1.Show();
-
         }
 
         private void ButtonGuests_click(object sender, EventArgs e)
@@ -65,6 +66,7 @@ namespace Hotel_Management_System
             addReservations2.Show();
             dashboard1.Hide();
             addReservations2.updateReservationsSearch();
+            addReservations2.updateAvailableRooms();
         }
 
         private void ButtonSettings_click(object sender, EventArgs e)
@@ -79,8 +81,9 @@ namespace Hotel_Management_System
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            shouldExit = false;
             this.Close();
-            Form login = new Login();
+            Login login = new Login();
             login.Show();
         }
 
@@ -91,7 +94,7 @@ namespace Hotel_Management_System
 
         private void form_closing(object sender, FormClosingEventArgs e)
         {
-            if (e.CloseReason == CloseReason.UserClosing)
+            if (shouldExit)
             {
                 Application.Exit();
             }

@@ -77,7 +77,7 @@ namespace Hotel_Management_System.User_Controls
         private void deleteGuestButton_Click(object sender, EventArgs e)
         {
             DataAccess db = new DataAccess();
-            if (db.checkGuestExists(delGuestTextBox.Text) == true)
+            if (db.checkGuestExists(delGuestTextBox.Text) == true && delGuestTextBox.Text != "")
             {
                 MessageBox.Show("Guest deleted succesfully.");
                 db.DeleteGuest(delGuestTextBox.Text);

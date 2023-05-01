@@ -84,18 +84,29 @@ namespace Hotel_Management_System.User_Controls
 
         private void deleteRoomsButton_Click(object sender, EventArgs e)
         {
-            if (db.checkRoomExists(Convert.ToInt32(deleteRoomsTextBox.Text)) == true)
+            if (deleteRoomsTextBox.Text != "")
             {
-                MessageBox.Show("Room deleted succesfully.");
-                db.DeleteRoom(Convert.ToInt32(deleteRoomsTextBox.Text));
-                deleteRoomsTextBox.Text = "";
+                if (db.checkRoomExists(Convert.ToInt32(deleteRoomsTextBox.Text)) == true)
+                {
+                    MessageBox.Show("Room deleted succesfully.");
+                    db.DeleteRoom(Convert.ToInt32(deleteRoomsTextBox.Text));
+                    deleteRoomsTextBox.Text = "";
 
-                roomList = db.SearchRooms(deleteRoomsTextBox.Text);
-                roomsList.DataSource = roomList;
-                comboBox1.DataSource = roomTypeListData;
-                comboBox1.DisplayMember = "FullInfo";
+                    roomList = db.SearchRooms(deleteRoomsTextBox.Text);
+                    roomsList.DataSource = roomList;
+                    comboBox1.DataSource = roomTypeListData;
+                    comboBox1.DisplayMember = "FullInfo";
 
-                deleteRoomsErrorLabel.Visible = false;
+                    roomTypeListData = db.updateRoomTypeList();
+                    roomTypeList.DataSource = roomTypeListData;
+                    roomTypeList.ClearSelection();
+
+                    roomTypeComboBoxList = db.updateRoomTypeComboBox();
+                    comboBox1.DataSource = roomTypeComboBoxList;
+                    comboBox1.DisplayMember = "RoomTypeInfo";
+
+                    deleteRoomsErrorLabel.Visible = false;
+                }
             }
             else
             {

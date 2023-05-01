@@ -20,7 +20,7 @@ namespace Hotel_Management_System
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("connstring")))
             {
-                var output = connection.Query<UserModel>($"select * from Users where user_name = '{username}'").ToList();
+                var output = connection.Query<UserModel>($"select * from Users where user_name COLLATE Latin1_General_CS_AS = '{username}'").ToList();
                 if (output.Count > 0)
                 {
                     return true;
@@ -35,7 +35,7 @@ namespace Hotel_Management_System
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("connstring")))
             {
-                var output = connection.Query<UserModel>($"select * from Users where user_name = '{ username }' and user_password = '{ password }'").ToList();
+                var output = connection.Query<UserModel>($"select * from Users where user_name COLLATE Latin1_General_CS_AS = '{ username }' and user_password = '{ password }'").ToList();
                 return output;
             }
         }

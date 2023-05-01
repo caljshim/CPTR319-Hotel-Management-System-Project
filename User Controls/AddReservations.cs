@@ -57,6 +57,7 @@ namespace Hotel_Management_System.User_Controls
             }
             else
             {
+                AddReservationErrorLabel.Visible = false;
                 addReservationButton.Enabled = true;
                 comboBoxRoom.DataSource = availableRoomsList;
                 comboBoxRoom.DisplayMember = "FullInfo";
@@ -73,7 +74,7 @@ namespace Hotel_Management_System.User_Controls
                 addReservationEmail.Text = "";
                 AddReservationErrorLabel.Visible = true;
             }
-            else if ((dateTimeCkOut.Value - dateTimeCkIn.Value).TotalDays == 0)
+            else if (Math.Round((dateTimeCkOut.Value - dateTimeCkIn.Value).TotalDays) == 0)
             {
                 AddReservationErrorLabel.Text = "Reservations must be at least one day.";
                 AddReservationErrorLabel.Visible = true;

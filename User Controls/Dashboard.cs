@@ -74,5 +74,13 @@ namespace Hotel_Management_System.User_Controls
             ViewAmenity.editPrimaryKey = Convert.ToInt32(amenitiesList.SelectedValue);
             ViewAmenity.Show();
         }
+
+        public void updateDashboard()
+        {
+            guestCountLabel.Text = $"Registered Guests: {db.CountGuests()}";
+            roomCountLabel.Text = $"Registered Rooms: {db.CountRooms()}";
+            reservationsCountLabel.Text = $"Current Reservations: {db.CountCurrentReservations()}";
+            employeeCountLabel.Text = $"Employees: {db.CountEmployees()}";
+        }
     }
 }
