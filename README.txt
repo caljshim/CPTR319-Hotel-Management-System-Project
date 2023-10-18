@@ -7,8 +7,6 @@ Hello!
   3. Run setup.exe
   
   4. The default installation path is going to be somewhere in the Programs (x86) file. 
-      However, the application has trouble accessing the files due to high security, so change the installation path
-      to somewhere easily accesible. For me, my Documents file worked perfectly.
       
   5. Once the program runs, you'll be greeted with a Login page. The default user to get into the system is 
   
