@@ -1,6 +1,5 @@
 Hello!
 
-The setup for this program is pretty straight-forward. 
   1. Locate the setup.exe and Setup.msi folder in the /Setup Files directory.
 
   2. Make sure that both the setup.exe and Setup.msi are present in the same directory as each other.
